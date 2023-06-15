@@ -15,3 +15,7 @@ CREATE TABLE tb_tarefa(
 
 SELECT * FROM tb_tarefa;
 ```
+# Para rodar é necessário alterar o usuário da database no back-end em sua máquina
+```bash
+flutter run
+```
