@@ -15,8 +15,14 @@ CREATE TABLE tb_tarefa(
 
 SELECT * FROM tb_tarefa;
 ```
-### Para rodar é necessário alterar o usuário da database no back-end em sua máquina
-```bash
+### Para rodar o back-end é necessário instalar os pacotes do Flask que estão no 'requirements.txt'
+#### Basta rodar o comando no diretório do back-end:
+```
+pip install -r requirements.txt
+```
+
+### Para rodar o front-end é necessário ter o flutter instalado em sua máquina
+```
 flutter run
 ```
 
