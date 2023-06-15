@@ -1,7 +1,7 @@
 # *Aprendendo Flutter*
 Projeto de Programação para Dispositivos Móveis para aprender flutter com Back-End e Frontend
-##
-# É necessário criar uma database no MySQL Workbench para conseguir transferir os dados pelo Back-End
+
+### É necessário criar uma database no MySQL Workbench para conseguir transferir os dados pelo Back-End
 ```sql
 CREATE DATABASE IF NOT EXISTS test;
 
@@ -15,7 +15,7 @@ CREATE TABLE tb_tarefa(
 
 SELECT * FROM tb_tarefa;
 ```
-# Para rodar é necessário alterar o usuário da database no back-end em sua máquina
+### Para rodar é necessário alterar o usuário da database no back-end em sua máquina
 ```bash
 flutter run
 ```
