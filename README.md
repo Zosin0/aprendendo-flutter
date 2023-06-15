@@ -19,3 +19,12 @@ SELECT * FROM tb_tarefa;
 ```bash
 flutter run
 ```
+
+
+
+## Aplicação: Front
+![image](https://github.com/Zosin0/aprendendo-flutter/assets/53053622/f348a723-d67d-4869-b666-800df523f3a8)
+![image](https://github.com/Zosin0/aprendendo-flutter/assets/53053622/a0ef6ba3-398e-4cda-8057-acb6f9315600)
+
+## Aplicação: Back-End (API dados)
+![image](https://github.com/Zosin0/aprendendo-flutter/assets/53053622/5ff38c6a-9fc8-472b-938a-c7c7f981477c)
