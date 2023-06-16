@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 class ExercicioDAO:
     def __init__(self):
         # Ligação com o esquema de banco de dados
-        engine = create_engine("mysql+mysqlconnector://root:123456@localhost/PDM?charset=utf8mb4")
+        engine = create_engine("mysql+mysqlconnector://user:senha@host/database?charset=utf8mb4")
 
         # Mapeamento Objeto Relacional com o SQLAlchemy
         DB = automap_base()
