@@ -2,15 +2,15 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import sessionmaker
 
-class TarefaDAO:
+class ExercicioDAO:
     def __init__(self):
         # Ligação com o esquema de banco de dados
-        engine = create_engine("mysql+mysqlconnector://root:nome_de_usuario@localhost/test?charset=utf8mb4")
+        engine = create_engine("mysql+mysqlconnector://root:123456@localhost/PDM?charset=utf8mb4")
 
         # Mapeamento Objeto Relacional com o SQLAlchemy
         DB = automap_base()
         DB.prepare(engine, reflect=True)
-        self.tb_tarefa = DB.classes.tb_tarefa
+        self.tb_exercicio = DB.classes.tb_exercicio
 
         # Trabalho com sessões da base agora Objeto-Relacional
         session_factory = sessionmaker(bind=engine)
@@ -24,17 +24,17 @@ class TarefaDAO:
 
 
     def readAll(self):
-        objs = self.ses.query(self.tb_tarefa).all()
+        objs = self.ses.query(self.tb_exercicio).all()
         return objs
 
 
     def readByIdt(self, idt):
-        obj = self.ses.query(self.tb_tarefa).filter_by(idt_tarefa=idt).first()
+        obj = self.ses.query(self.tb_exercicio).filter_by(idt_exercicio=idt).first()
         return obj
 
 
     def readBySts(self, sts):
-        objs = self.ses.query(self.tb_tarefa).filter_by(sts_tarefa=sts).all()
+        objs = self.ses.query(self.tb_exercicio).filter_by(nme_exercicio=sts).all()
         return objs
 
 
