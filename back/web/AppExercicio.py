@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api
-from rest import Tarefa as tRest
+from rest import Exercicio as tRest
 
 app = Flask(__name__)
 api = Api(app)
@@ -14,7 +14,7 @@ def after_request(response):
    return response
 
 
-api.add_resource(tRest.TarefaRest, '/tarefas', endpoint='tarefas')
+api.add_resource(tRest.ExercicioRest, '/exercicios', endpoint='exercicios')
 
 if __name__ == '__main__':
    app.run(debug=True)

@@ -4,16 +4,17 @@ import 'entidade.dart';
 
 
 class BackEnd {
-  Future<int> post(Tarefa tarefa) async {
+  Future<int> post(Exercicio exercicio) async {
     Uri request = Uri(
         scheme: "http",
         host: "localhost",
         port: 5000,
-        path: "/tarefas",
+        path: "/exercicios",
         queryParameters: {
-          "tit_tarefa": tarefa.titulo,
-          "dsc_tarefa": tarefa.descricao,
-          "sts_tarefa": tarefa.status
+          "nme_exercicio": exercicio.nome,
+          "dsc_exercicio": exercicio.desc,
+          "num_repeticao_exercicio": exercicio.numrep,
+          "num_gasto_calorico_exercicio": exercicio.numgasto
         });
 
 
@@ -24,7 +25,7 @@ class BackEnd {
       final json = jsonDecode(response.body);
       return json['insert'];
     } else {
-      Future.error("Tarefa não cadastrada!");
+      Future.error("Exercicio não cadastrado!");
       return 0;
     }
   }

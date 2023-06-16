@@ -2,40 +2,40 @@ from flask_restful import Resource, request
 from flask import jsonify
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
-from dao import Tarefa as tdao
+from dao import Exercicio as exer
 
-dados = tdao.TarefaDAO()
+dados = exer.ExercicioDAO()
 
 
-class TarefaSchema(SQLAlchemyAutoSchema):
+class ExercicioSchema(SQLAlchemyAutoSchema):
   class Meta:
-      model = dados.tb_tarefa
+      model = dados.tb_exercicio
 
 
-class TarefaRest (Resource):
+class ExercicioRest (Resource):
   def __init__(self):
-      self.campos = ['idt_tarefa', 'tit_tarefa', 'dsc_tarefa', 'sts_tarefa']
+      self.campos = ['idt_exercicio', 'nme_exercicio', 'dsc_exercicio', 'num_repeticao_exercicio', 'num_gasto_calorico_exercicio']
 
   def get(self):
       if request.args.get(self.campos[0]) is not None:
           obj = dados.readByIdt(request.args.get(self.campos[0]))
-          sch = TarefaSchema()
+          sch = ExercicioSchema()
           return jsonify(sch.dump(obj))
-      elif request.args.get("sts_tarefa") is not None:
-          lista = dados.readBySts(request.args.get("sts_tarefa"))
-          sch = TarefaSchema(many=True)
+      elif request.args.get("nme_exercicio") is not None:
+          lista = dados.readBySts(request.args.get("nme_exercicio"))
+          sch = ExercicioSchema(many=True)
           return jsonify(sch.dump(lista))
       else:
           lista = dados.readAll()
-          sch = TarefaSchema(many=True)
+          sch = ExercicioSchema(many=True)
           return jsonify(sch.dump(lista))
 
   def post(self):
-      obj = dados.tb_tarefa()
+      obj = dados.tb_exercicio()
       for c in self.campos:
           exec('obj.{}=request.args.get("{}")'.format(c, c))
       dados.create(obj)
-      return jsonify({'insert': obj.idt_tarefa})
+      return jsonify({'insert': obj.idt_exercicio})
 
   def put(self):
       obj = dados.readByIdt(request.args.get(self.campos[0]))
@@ -46,7 +46,7 @@ class TarefaRest (Resource):
               if request.args.get(c) is not None:
                   exec('obj.{}=request.args.get("{}")'.format(c, c))
           dados.update()
-          return jsonify({'update': obj.idt_tarefa})
+          return jsonify({'update': obj.idt_exercicio})
 
   def delete(self):
       idt = request.args.get(self.campos[0])

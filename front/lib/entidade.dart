@@ -1,18 +1,19 @@
-class Tarefa {
-  final String titulo;
-  final String descricao;
-  final String status;
+class Exercicio {
+  final String nome;
+  final String desc;
+  final String numrep;
+  final String numgasto;
 
-
-  Tarefa(
-    this.titulo,
-    this.descricao,
-    this.status,
+  Exercicio(
+    this.nome,
+    this.desc,
+    this.numrep,
+    this.numgasto
   );
 
 
   @override
   String toString() {
-    return 'Produto{nome: $titulo, quantidade: $descricao, valor: $status}';
+    return 'Produto{nome: $nome, desc: $desc, num-rep: $numrep, num-gasto $numgasto}';
   }
 }
